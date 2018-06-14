@@ -11,14 +11,20 @@ console.log('hello');
 
 // Within a function, what is the difference between **return** and **console.log**?
 
-// return =
-// console.log =
-// difference?
+
+// return = stops the function from continuing and it will RETURN a value to the function
+// console.log = only logs something to the console - it doesn't really "update" anything.
+// difference? - Returns will be more helpful when we being building real applications and not just
+// playing with loggin things to the console.
 
 
 
 
 // "Commit 1 - Verbal questions"
+
+
+
+
 
 
 
@@ -33,12 +39,10 @@ console.log('hello');
 //    Make sure your function will give the correct answer for words with **capital letters**.
 
 
-
-
-
-
-
-
+const checkPalindrome = (possiblePalindrome) => {
+      return possiblePalindrome == possiblePalindrome.split('').reverse().join('');
+}
+console.log(checkPalindrome('radar'));
 
 //                      console.log(checkPalindrome("Radar")); => true
 //                      console.log(checkPalindrome("Borscht")); => false
