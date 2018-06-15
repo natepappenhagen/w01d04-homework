@@ -82,22 +82,6 @@ function digitSum(n) {
 console.log(digitSum(12345)); // ----> 15
 
 
-
-// let sum = 0;
-// const sumDigits = (num1) => {
-// 	let total = num1.toString().split('');
-// 	console.log(total);
-// 	for (i = 0; i < total.length; i++) {
-//
-// 		sum += parseInt(total[i]);
-//
-// 	}
-// }
-//
-// sumDigits(42);
-// 		console.log(sum);
-
-
 // "Commit 3 - Digit Sum".
 
 
@@ -113,14 +97,12 @@ console.log(digitSum(12345)); // ----> 15
 
 
 
+const calculateSide = (sideA, sideB) => {
+	return Math.sqrt(sideA * sideA + sideB * sideB);
 
+}
 
-
-
-
-
-
-
+console.log(calculateSide(8, 6));
 
 //console.log(calculateSide(8, 6));    => 10
 
