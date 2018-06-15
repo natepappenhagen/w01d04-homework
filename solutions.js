@@ -157,7 +157,32 @@ console.log(sumArray([2, 4, 6, 8, 10,]));
 // _Hint:_ Check every number up to the square root. To do this, try a _for loop_.
 
 
+const checkPrime = (num) => {
+	for (i = 2; i <= Math.sqrt(num); i++) {
+		if (num % i === 0) {
+			return false;
+		}
+	}
+	return true;
+}
 
+// PRIMES
+console.log(checkPrime(2));
+console.log(checkPrime(3));
+console.log(checkPrime(5));
+console.log(checkPrime(7));
+console.log(checkPrime(11));
+console.log(checkPrime(13));
+console.log(checkPrime(17));
+
+// NOT PRIMES
+console.log(checkPrime(4));
+console.log(checkPrime(6));
+console.log(checkPrime(8));
+console.log(checkPrime(9));
+console.log(checkPrime(10));
+console.log(checkPrime(12));
+console.log(checkPrime(14));
 
 
 
@@ -171,7 +196,15 @@ console.log(sumArray([2, 4, 6, 8, 10,]));
 //
 // This function can **call on** the previous `checkPrime` function.
 
+const printPrimes = (num) => {
+      for (let i = 0; i <= num; i++) {
+            if (checkPrime(i)) {
+                console.log(`${i} is a prime number!!!!`);
+    }
+  }
+}
 
+printPrimes(97);
 
 
 
