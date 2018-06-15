@@ -42,7 +42,10 @@ console.log('hello');
 const checkPalindrome = (possiblePalindrome) => {
       return possiblePalindrome == possiblePalindrome.split('').reverse().join('');
 }
-console.log(checkPalindrome('radar'));
+
+
+console.log(checkPalindrome('RADAR')); // true
+console.log(checkPalindrome('Borscht')); // false
 
 //                      console.log(checkPalindrome("Radar")); => true
 //                      console.log(checkPalindrome("Borscht")); => false
@@ -63,15 +66,36 @@ console.log(checkPalindrome('radar'));
 
 // console.log(sumDigits(42));    => 6;
 
+////////////////////////////////////////////////////////////////////
+
+function digitSum(n) {
+	   var sum = 0;
+	   var string = n.toString();
+
+	   for(i=0; i < string.length; i++){
+		      sum = sum + parseInt(string.substring(i, i+1));
+	        }
+
+	return sum;
+}
+
+console.log(digitSum(12345)); // ----> 15
 
 
 
-
-
-
-
-
-
+// let sum = 0;
+// const sumDigits = (num1) => {
+// 	let total = num1.toString().split('');
+// 	console.log(total);
+// 	for (i = 0; i < total.length; i++) {
+//
+// 		sum += parseInt(total[i]);
+//
+// 	}
+// }
+//
+// sumDigits(42);
+// 		console.log(sum);
 
 
 // "Commit 3 - Digit Sum".
@@ -194,6 +218,30 @@ console.log(checkPalindrome('radar'));
 
 
 // "Commit 7 - Insert Dash".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
