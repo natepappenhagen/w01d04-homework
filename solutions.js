@@ -39,13 +39,15 @@ console.log('hello');
 //    Make sure your function will give the correct answer for words with **capital letters**.
 
 
-const checkPalindrome = (possiblePalindrome) => {
-      return possiblePalindrome == possiblePalindrome.split('').reverse().join('');
-}
+                                    const checkPalindrome = (possiblePalindrome) => {
+                                          let lowerCasePossiblePalindrome = possiblePalindrome.toLowerCase();
+                                          return lowerCasePossiblePalindrome == lowerCasePossiblePalindrome.split('').reverse().join('');
+                                    }
 
 
-console.log(checkPalindrome('RADAR')); // true
-console.log(checkPalindrome('Borscht')); // false
+                                    console.log(checkPalindrome('RADAR')); // true
+                                    console.log(checkPalindrome('Borscht')); // false
+
 
 //                      console.log(checkPalindrome("Radar")); => true
 //                      console.log(checkPalindrome("Borscht")); => false
@@ -68,17 +70,35 @@ console.log(checkPalindrome('Borscht')); // false
 
 ////////////////////////////////////////////////////////////////////
 
+// function declaration called 'digitSum' ---- takes in (n) for number
 function digitSum(n) {
-	   var sum = 0;
-	   var string = n.toString();
 
-	   for(i=0; i < string.length; i++){
+    // create variable to store the sum & just set it to 0
+	   let sum = 0;
+    // create variable to change the number into a string
+	   let string = n.toString();
+
+    // loop through the number -- now a string -- that is passed as argument to 'digit sum'
+	   for( let i=0; i < string.length; i++){
+        // for every loop sum is updated
+        // the parseInt function turns a string into an integer
+        // string.subString(i, i+1) references the position of the string + the adjacent position
+
+        //        so parseInt(string.SubString(i, i+1)); of would basically add the first number + second number indefinitely
+       //         if we return ====>  sum  = parseInt(string.substring(i, i+1)); ====> we only get the value of the last number
+       //         so sum  = parseInt(string.substring(i, i+1));  ----digitSum(12345) => 5 b/c thats the last number given
+       //
+       //         we need to have sum =  sum + parseInt(string.subString) to add the values together
+      //
+
 		      sum = sum + parseInt(string.substring(i, i+1));
 	        }
-
+// essential for the function to run we need to RETURN the final value of our looping and adding. This will end the function.
 	return sum;
 }
 
+
+// running the code
 console.log(digitSum(12345)); // ----> 15
 
 
@@ -97,14 +117,14 @@ console.log(digitSum(12345)); // ----> 15
 
 
 
-const calculateSide = (sideA, sideB) => {
-	return Math.sqrt(sideA * sideA + sideB * sideB);
+          const calculateSide = (sideA, sideB) => {
+          	return Math.sqrt((sideA * sideA) + (sideB * sideB));
 
-}
+          }
 
-console.log(calculateSide(8, 6));
-
-//console.log(calculateSide(8, 6));    => 10
+          console.log(calculateSide(8, 6));  // ====> 10
+          console.log(calculateSide(10, 3)); // ====> 10.44
+          console.log(calculateSide(15, 9));  // ===> 17.49
 
 
 // "Commit 4 - Pythagoras".
@@ -123,16 +143,21 @@ console.log(calculateSide(8, 6));
 // that will **accumulate** value within the loop.
 //Expected result: console.log(sumArray([1, 2, 3, 4, 5, 6]));  => 21
 
+//          function declaration for 'sumArray' which takes in (arr) as a parameter
+            const sumArray = (arr) => {
+//            create a variable 'sum' to store the result - just set to 0 to start with.
+              let sum = 0;
 
-const sumArray = (arr) => {
-	let sum = 0;
-	for (let i = 0; i < arr.length; i++) {
-		    sum = arr[i] + sum;
-	}
-   return sum
-}
+//            loop through the length of the whole array
+              for (let i = 0; i < arr.length; i++) {
+//
+                    sum = sum + arr[i];
+              }
+               return sum
+            }
 
-console.log(sumArray([2, 4, 6, 8, 10,]));
+            console.log(sumArray([2, 4, 6, 8, 10,])); // ==> 30
+            console.log(sumArray([1, 2, 3, 4, 5,]));  // ==> 15
 
 
 // "Commit 5 - Sum Array".
@@ -157,16 +182,18 @@ console.log(sumArray([2, 4, 6, 8, 10,]));
 // _Hint:_ Check every number up to the square root. To do this, try a _for loop_.
 
 
-const checkPrime = (num) => {
-	for (i = 2; i <= Math.sqrt(num); i++) {
-		if (num % i === 0) {
-			return false;
-		}
-	}
-	return true;
-}
+              const checkPrime = (num) => {
+                // this loop will hunt down numbers that
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                  if (num % i === 0) {
+                    return false;
+                  }
+                }
+                return true;
+              }
 
 // PRIMES
+console.log(checkPrime(1));
 console.log(checkPrime(2));
 console.log(checkPrime(3));
 console.log(checkPrime(5));
@@ -196,15 +223,15 @@ console.log(checkPrime(14));
 //
 // This function can **call on** the previous `checkPrime` function.
 
-const printPrimes = (num) => {
-      for (let i = 0; i <= num; i++) {
-            if (checkPrime(i)) {
-                console.log(`${i} is a prime number!!!!`);
-    }
-  }
-}
+            const printPrimes = (num) => {
+                  for (let i = 0; i <= num; i++) {
+                        if (checkPrime(i)) {
+                            console.log(`${i} is a prime number!!!!`);
+                }
+              }
+            }
 
-printPrimes(97);
+            printPrimes(97);
 
 
 
@@ -225,14 +252,23 @@ printPrimes(97);
 //   **odd numbers**. There should not be a dash at the end,
 //    it goes only between numbers.
 
+                  const insertDash = (num) => {
+                    let dash = "";
+                    num = num.toString();
+                    for (let i = 0; i < num.length; i++) {
+                      dash += num[i];
+                      if (num[i] % 2 === 1 && num[i + 1] % 2 === 1) {
+                        dash +=  "-";
 
-//  console.log(insertDash(454793));   => 4547-9-3
+                        }
+                    }
+                    return dash;
 
+                  }
 
-
-
-
-
+console.log(insertDash(454793));  //  => 4547-9-3
+console.log(insertDash(333333));  //  => "3-3-3-3-3-3"
+console.log(insertDash(66778899));  //  => "667-7889-9"
 
 // "Commit 7 - Insert Dash".
 
